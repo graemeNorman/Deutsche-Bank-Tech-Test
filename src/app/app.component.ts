@@ -1,9 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, NgIterable, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
 import { DataService } from './services/data.service';
-import { InitialData, MappedData } from './models/models';
+import { Currencies, InitialData, MappedData } from './models/models';
 import * as _ from 'lodash';
 import { AvailableCountries, SelectedCountry, SelectedRegion } from './state/actions/actions';
 
@@ -16,6 +16,8 @@ import states from '../data/states.json';
 })
 
 export class AppComponent implements OnDestroy {
+  countryCurrencies: Array<Currencies> | NgIterable<any> | undefined;
+
   title = 'Deutsche Bank Tech Test';
   logo: string;
   makeActive!: boolean;
@@ -69,7 +71,7 @@ export class AppComponent implements OnDestroy {
           setTimeout(() => {
             this.$store.dispatch(SelectedRegion({ name: eventData.target.value }));
             this.getRegionData(eventData.target.value);
-          }, 750);
+          }, 250);
         }
       });
 

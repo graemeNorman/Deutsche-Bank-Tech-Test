@@ -1,6 +1,5 @@
 <div class="container">
   <header>
-    <!--    <img src="{{ logo }}" alt="{{ title }}" class="( logo )" />-->
     <h1 class="( title )"> Deutsche Bank Technical Test </h1>
   </header>
 
@@ -39,32 +38,7 @@
     </div>
   </div>
 
-  <div *ngIf="makeActive && selectedData" class="row ( country-data-table )">
-    <div class="col-12">
-      <table class="table table-bordered table-responsive-md" *ngIf="dataTableDisplay">
-        <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Capital</th>
-          <th scope="col">Population</th>
-          <th scope="col">Currencies</th>
-          <th scope="col">Flag</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th>{{ selectedData.name }}</th>
-          <td>{{ selectedData.capital }}</td>
-          <td>{{ selectedData.population }}</td>
-          <td>
-            <ul class="( currencies )">
-<!--              <li *ngFor="let currency of selectedData.currencies"> {{ currency.name }} </li>-->
-            </ul>
-          </td>
-          <td><img class="( flag )" src="{{ selectedData.flag }}" alt="{{ selectedData.name }}" /></td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+  <ng-container *ngIf="makeActive && selectedData">
+    <app-country-table-display *ngIf="dataTableDisplay" [data]="selectedData"></app-country-table-display>
+  </ng-container>
 </div>

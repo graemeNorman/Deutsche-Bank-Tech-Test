@@ -17,7 +17,7 @@ export interface Region {
   borders: [any];
   nativeName: string;
   numericCode: string;
-  currencies: [Currencies];
+  currencies: Currencies[];
   languages: [any];
   translations: {};
   flag: string;
@@ -35,7 +35,7 @@ export interface MappedData {
   name: string;
   capital: string;
   population: number;
-  currencies: {};
+  currencies: Currencies[];
   flag: string;
 }
 

@@ -1,0 +1,15 @@
+@import "~src/styles/variables";
+
+.country-data-table {
+  margin-top: 15px;
+
+  .currencies {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .flag {
+    border: 1px solid $black;
+    height: 50px;
+  }
+}
