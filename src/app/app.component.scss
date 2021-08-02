@@ -1,0 +1,71 @@
+@import "~src/styles/variables";
+
+@media (max-width: 576px) {
+  header {
+    align-items: flex-start;
+    border-bottom: 2px solid $lightgrey;
+    display: inline-flex;
+    margin: 0 0 15px;
+    padding: 0 0 15px;
+    width: 100%;
+
+    .logo {
+      margin: 0 15px 0 0;
+      width: 50px;
+    }
+    .title {
+      font-size: 34px;
+      line-height: 36px;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  header {
+    align-items: flex-start;
+    border-bottom: 2px solid $lightgrey;
+    display: inline-flex;
+    margin: 0 0 15px;
+    padding: 0 0 15px;
+    width: 100%;
+
+    .logo {
+      margin: 0 15px 0 0;
+      width: 50px;
+    }
+    .title {
+      line-height: 36px;
+      margin: 0;
+    }
+  }
+}
+
+.container {
+  background: $white;
+  margin-top: 15px;
+  min-height: 50vh;
+  padding-top: 15px;
+
+  button.view-data:disabled {
+    cursor: not-allowed;
+  }
+
+  button.view-data {
+    margin: 15px 0 0;
+  }
+
+  .country-data-table {
+    margin-top: 15px;
+
+    .currencies {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .flag {
+      border: 1px solid $black;
+      height: 50px;
+    }
+  }
+}
+

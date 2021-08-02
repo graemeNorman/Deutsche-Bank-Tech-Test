@@ -31,7 +31,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -107,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "deutsche-bank"
+  "defaultProject": "deutsche-bank",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
