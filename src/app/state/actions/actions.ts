@@ -1,16 +1,22 @@
 import { createAction, props } from '@ngrx/store';
+import { MappedData } from "../../models/models";
 
 export const SelectedRegion = createAction(
   '[Selected Region]',
-  props<{ name: any }>()
+  props<{ regionName: string }>()
 );
 
 export const SelectedCountry = createAction(
   '[Selected Country]',
-  props<{ name: any }>()
+  props<{ countryName: string }>()
 );
 
-export const AvailableCountries = createAction(
-  '[Available Countries]',
-  props<{ region: any, countries: any }>()
+export const AvailableEuropeanCountries = createAction(
+  '[Available European Countries]',
+  props<{ countries: MappedData[] }>()
+);
+
+export const AvailableAsianCountries = createAction(
+  '[Available Asian Countries]',
+  props<{ countries: MappedData[] }>()
 );

@@ -1,11 +1,15 @@
 import { Component, NgIterable, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import * as _ from 'lodash';
 import { environment } from '../environments/environment';
 import { DataService } from './services/data.service';
 import { Currencies, InitialData, MappedData } from './models/models';
-import * as _ from 'lodash';
-import { AvailableCountries, SelectedCountry, SelectedRegion } from './state/actions/actions';
+import {
+  AvailableEuropeanCountries,
+  AvailableAsianCountries,
+  SelectedCountry,
+  SelectedRegion } from './state/actions/actions';
 
 import states from '../data/states.json';
 
@@ -51,9 +55,15 @@ export class AppComponent implements OnDestroy {
           currencies: obj.currencies,
           flag: obj.flag,
         }));
-        this.$store.dispatch(
-          AvailableCountries({ region: regionName, countries: this.regionData })
-        );
+        if (regionName === 'Europe') {
+          this.$store.dispatch(
+            AvailableEuropeanCountries({ countries: this.regionData })
+          );
+        } else {
+          this.$store.dispatch(
+            AvailableAsianCountries({ countries: this.regionData })
+          );
+        }
         this.makeActive = true;
       }
     });
@@ -69,7 +79,7 @@ export class AppComponent implements OnDestroy {
           this.makeActive = false;
 
           setTimeout(() => {
-            this.$store.dispatch(SelectedRegion({ name: eventData.target.value }));
+            this.$store.dispatch(SelectedRegion({ regionName: eventData.target.value }));
             this.getRegionData(eventData.target.value);
           }, 250);
         }
@@ -78,7 +88,7 @@ export class AppComponent implements OnDestroy {
     } else {
       if (this.dataTableDisplay) { this.dataTableDisplay = false; }
       this.selectedData = _.find(this.regionData, { name: eventData.target.value });
-      this.$store.dispatch(SelectedCountry({ name: eventData.target.value }));
+      this.$store.dispatch(SelectedCountry({ countryName: eventData.target.value }));
       this.dataTableDisplay ? this.viewBtn = false : this.viewBtn = true;
     }
   }
