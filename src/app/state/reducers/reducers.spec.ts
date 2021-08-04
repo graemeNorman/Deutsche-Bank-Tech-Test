@@ -1,7 +1,7 @@
 import * as myActions from "../actions/actions";
 import * as myReducer from "./reducers";
 
-import { mockMappedAsianCountryData, mockMappedEuropeanCountryData, initialState } from "../../mockData/mock-data";
+import { mockMappedAsianCountryData, mockMappedEuropeanCountryData, initialState } from "../../../mockData/mock-data";
 
 describe('Reducers index', () => {
 

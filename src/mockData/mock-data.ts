@@ -1,4 +1,4 @@
-import { MappedData, Region, State } from "../models/models";
+import { MappedData, Region, State } from "../app/models/models";
 
 /***
  * State

@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 // Other
 import { DataService } from './data.service';
 import { Region } from "../models/models";
-import { mockRegionData } from "../mockData/mock-data";
+import { mockRegionData } from "../../mockData/mock-data";
 
 describe('DataService', () => {
   let service: DataService;

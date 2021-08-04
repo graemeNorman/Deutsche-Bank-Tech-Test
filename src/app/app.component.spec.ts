@@ -17,7 +17,7 @@ import { MappedData } from "./models/models";
 import {
   mockRegionData,
   mockEventDataRegion,
-  initialState } from "./mockData/mock-data";
+  initialState } from "../mockData/mock-data";
 
 describe('AppComponent', () => {
   let component: AppComponent;

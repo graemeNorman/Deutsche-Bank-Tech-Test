@@ -3,7 +3,7 @@ import { State } from '../../models/models';
 import { Action, createReducer, on } from "@ngrx/store";
 // Other
 import * as MyActions from '../actions/actions';
-import { initialState } from "../../mockData/mock-data";
+import { initialState } from "../../../mockData/mock-data";
 
 const deutscheBankReducer = createReducer(
   initialState,
