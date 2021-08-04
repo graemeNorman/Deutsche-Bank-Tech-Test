@@ -12,7 +12,7 @@ import { CountryTableDisplayComponent } from './components/country-table-display
 import { DataService } from './services/data.service';
 import { RequestCache } from './services/cache-request.service';
 import { CachingInterceptor } from './services/caching.interceptor';
-import { reducer } from './state/reducers';
+import { reducer } from "./state/reducers/reducers";
 
 @NgModule({
   declarations: [

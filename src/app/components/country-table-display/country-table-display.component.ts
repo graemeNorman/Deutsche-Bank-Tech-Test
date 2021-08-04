@@ -8,7 +8,5 @@ import { MappedData } from "../../models/models";
 })
 
 export class CountryTableDisplayComponent {
-
   @Input() data!: MappedData;
-
 }

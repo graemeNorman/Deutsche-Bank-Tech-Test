@@ -1,7 +1,9 @@
+// Core
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+// Other
 import { Region } from '../models/models';
 import { environment } from '../../environments/environment';
 
@@ -10,7 +12,6 @@ import { environment } from '../../environments/environment';
 })
 
 export class DataService {
-
   private baseUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
@@ -23,13 +24,11 @@ export class DataService {
   }
 
   private handleError(err: HttpErrorResponse) {
-
     let errorMessage = '';
-    if (err.error instanceof ErrorEvent) {
 
+    if (err.error instanceof ErrorEvent) {
       errorMessage = `An error occurred: ${err.error.message}`;
     } else {
-
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
     console.error(errorMessage);

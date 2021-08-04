@@ -1,13 +1,9 @@
+// Core
 import { State } from '../../models/models';
 import { Action, createReducer, on } from "@ngrx/store";
+// Other
 import * as MyActions from '../actions/actions';
-
-export const initialState: State = {
-  selectedRegion: { name: '' },
-  selectedCountry: { name: '' },
-  europeanCountries: [],
-  asianCountries: []
-};
+import { initialState } from "../../mockData/mock-data";
 
 const deutscheBankReducer = createReducer(
   initialState,

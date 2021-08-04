@@ -1,6 +1,6 @@
 <div class="container">
   <header>
-    <h1 class="( title )"> Deutsche Bank Technical Test </h1>
+    <h1 class="( title )"> {{ title }} </h1>
   </header>
 
   <div class="row ( country-region-select )">
@@ -10,7 +10,7 @@
           <div class="form-group">
             <app-region-country name="regionSelect"
                                 label="Region"
-                                (selectedValue)="emittedData($event)"
+                                (change)="onChange($event)"
                                 [data]="states">
             </app-region-country>
           </div>
@@ -21,7 +21,7 @@
             <div class="form-group">
               <app-region-country name="countrySelect"
                                   label="Country"
-                                  (selectedValue)="emittedData($event)"
+                                  (change)="onChange($event)"
                                   [data]="regionData">
               </app-region-country>
             </div>
@@ -39,6 +39,8 @@
   </div>
 
   <ng-container *ngIf="makeActive && selectedData">
-    <app-country-table-display *ngIf="dataTableDisplay" [data]="selectedData"></app-country-table-display>
+    <app-country-table-display *ngIf="dataTableDisplay"
+                               [data]="selectedData">
+    </app-country-table-display>
   </ng-container>
 </div>

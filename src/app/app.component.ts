@@ -1,16 +1,18 @@
+// Core
 import { Component, NgIterable, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as _ from 'lodash';
+// Other
 import { environment } from '../environments/environment';
 import { DataService } from './services/data.service';
 import { Currencies, InitialData, MappedData } from './models/models';
+// State
 import {
   AvailableEuropeanCountries,
   AvailableAsianCountries,
   SelectedCountry,
   SelectedRegion } from './state/actions/actions';
-
 import states from '../data/states.json';
 
 @Component({
@@ -27,7 +29,7 @@ export class AppComponent implements OnDestroy {
   makeActive!: boolean;
   dataTableDisplay!: boolean;
   viewBtn!: boolean;
-  regionData!: MappedData[];
+  regionData: MappedData[] = [];
   selectedData: MappedData | undefined;
   states: InitialData[];
 
@@ -69,9 +71,8 @@ export class AppComponent implements OnDestroy {
     });
   }
 
-  emittedData(eventData: any) {
+  onChange(eventData: any) {
     if (eventData.target.id === 'regionSelect') {
-
       this.regionSelect$.subscribe(region => {
         if (region.name !== eventData.target.value) {
           this.dataTableDisplay = false;
@@ -84,11 +85,18 @@ export class AppComponent implements OnDestroy {
           }, 250);
         }
       });
-
     } else {
-      if (this.dataTableDisplay) { this.dataTableDisplay = false; }
-      this.selectedData = _.find(this.regionData, { name: eventData.target.value });
-      this.$store.dispatch(SelectedCountry({ countryName: eventData.target.value }));
+      if (this.dataTableDisplay) {
+        this.dataTableDisplay = false;
+      }
+      this.selectedData = _.find(this.regionData,
+        { name: eventData.target.value }
+        );
+      this.$store.dispatch(
+        SelectedCountry(
+          { countryName: eventData.target.value }
+          )
+      );
       this.dataTableDisplay ? this.viewBtn = false : this.viewBtn = true;
     }
   }
